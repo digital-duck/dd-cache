@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dd-cache"
+version = "0.1.0"
+description = "Backend-swappable caching layer for the dd-* ecosystem"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+dependencies = [
+    "pydantic>=2.0.0",
+]
+
+[project.optional-dependencies]
+redis = ["redis>=4.0"]
+all = ["redis>=4.0"]
+dev = ["pytest>=7.0", "pytest-cov", "redis>=4.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
